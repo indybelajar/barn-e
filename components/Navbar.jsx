@@ -1,18 +1,29 @@
-"use client"
+// components/Navbar.jsx
+"use client";
+
 import React from "react";
-import { assets} from "@/assets/assets";
-import Link from "next/link"
+import { assets, BagIcon, BoxIcon, CartIcon, HomeIcon } from "@/assets/assets";
+import Link from "next/link";
 import { useAppContext } from "@/context/AppContext";
 import Image from "next/image";
+// Import useClerk, useUser, and UserButton from @clerk/nextjs
+import { useClerk, useUser, UserButton } from "@clerk/nextjs"; // <--- Add useUser and UserButton here!
+
 
 const Navbar = () => {
+  const { isLoaded, isSignedIn, user } = useUser(); // <--- Use the useUser hook here
+  const { openSignIn } = useClerk();
+  const { isSeller, router } = useAppContext(); // Assuming 'router' is from useAppContext or 'next/navigation'
 
-  const { isSeller, router } = useAppContext();
+  // You might want to handle loading state from Clerk
+  if (!isLoaded) {
+    return null; // Or a loading spinner
+  }
 
   return (
     <nav className="flex items-center justify-between px-6 md:px-16 lg:px-32 py-3 border-b border-gray-300 text-gray-700">
       <Image
-        className="cursor-pointer w-28 md:w-32"
+        className="cursor-pointer w-16 md:w-24"
         onClick={() => router.push('/')}
         src={assets.logo}
         alt="logo"
@@ -22,13 +33,13 @@ const Navbar = () => {
           Home
         </Link>
         <Link href="/all-products" className="hover:text-gray-900 transition">
-          Shop
+          Barn-E AI
         </Link>
         <Link href="/" className="hover:text-gray-900 transition">
-          About Us
+          Toko Ternak
         </Link>
         <Link href="/" className="hover:text-gray-900 transition">
-          Contact
+          Jadwal & Ternak
         </Link>
 
         {isSeller && <button onClick={() => router.push('/seller')} className="text-xs border px-4 py-1.5 rounded-full">Seller Dashboard</button>}
@@ -37,18 +48,51 @@ const Navbar = () => {
 
       <ul className="hidden md:flex items-center gap-4 ">
         <Image className="w-4 h-4" src={assets.search_icon} alt="search icon" />
-        <button className="flex items-center gap-2 hover:text-gray-900 transition">
-          <Image src={assets.user_icon} alt="user icon" />
-          Account
-        </button>
+        {
+          // Now 'user' and 'UserButton' are defined
+          user
+            ? <>
+            <UserButton>
+              <UserButton.MenuItems>
+                <UserButton.Action label="Home"labelIcon={<HomeIcon />} onClick={()=> router.push('/')} />
+              </UserButton.MenuItems>
+              <UserButton.MenuItems>
+                <UserButton.Action label="Produtcs"labelIcon={<BoxIcon />} onClick={()=> router.push('/all-products')} />
+              </UserButton.MenuItems>
+               <UserButton.MenuItems>
+                <UserButton.Action label="Cart"labelIcon={<CartIcon />} onClick={()=> router.push('cart')} />
+              </UserButton.MenuItems>
+                     <UserButton.MenuItems>
+                <UserButton.Action label="My Orders" labelIcon={<BagIcon />} onClick={()=> router.push('my-orders')} />
+              </UserButton.MenuItems>
+            </UserButton>
+            </>
+            : (
+              <button onClick={openSignIn} className="flex items-center gap-2 hover:text-gray-900 transition">
+                <Image src={assets.user_icon} alt="user icon" />
+                Account
+              </button>
+            )
+        }
       </ul>
 
+      {/* This block also needs the same conditional logic if it's for mobile/small screens */}
       <div className="flex items-center md:hidden gap-3">
         {isSeller && <button onClick={() => router.push('/seller')} className="text-xs border px-4 py-1.5 rounded-full">Seller Dashboard</button>}
-        <button className="flex items-center gap-2 hover:text-gray-900 transition">
-          <Image src={assets.user_icon} alt="user icon" />
-          Account
-        </button>
+        {
+          user
+            ? (
+              <>
+                <UserButton afterSignOutUrl="/" />
+              </>
+            )
+            : (
+              <button onClick={openSignIn} className="flex items-center gap-2 hover:text-gray-900 transition">
+                <Image src={assets.user_icon} alt="user icon" />
+                Account
+              </button>
+            )
+        }
       </div>
     </nav>
   );

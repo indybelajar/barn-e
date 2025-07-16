@@ -69,17 +69,13 @@ const Product = () => {
                     </h1>
                     <div className="flex items-center gap-2">
                         <div className="flex items-center gap-0.5">
-                            <Image className="h-4 w-4" src={assets.star_icon} alt="star_icon" />
-                            <Image className="h-4 w-4" src={assets.star_icon} alt="star_icon" />
-                            <Image className="h-4 w-4" src={assets.star_icon} alt="star_icon" />
-                            <Image className="h-4 w-4" src={assets.star_icon} alt="star_icon" />
                             <Image
                                 className="h-4 w-4"
-                                src={assets.star_dull_icon}
-                                alt="star_dull_icon"
+                                src={assets.kandank_icon}
+                                alt="kandank_icon"
                             />
                         </div>
-                        <p>(4.5)</p>
+                        <p>Kandang 1</p>
                     </div>
                     <p className="text-gray-600 mt-3">
                         {productData.description}
@@ -95,12 +91,24 @@ const Product = () => {
                         <table className="table-auto border-collapse w-full max-w-72">
                             <tbody>
                                 <tr>
-                                    <td className="text-gray-600 font-medium">Brand</td>
-                                    <td className="text-gray-800/50 ">Generic</td>
+                                    <td className="text-gray-600 font-medium">Bobot</td>
+                                    <td className="text-gray-800/50 ">50 Kg</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-gray-600 font-medium">Color</td>
-                                    <td className="text-gray-800/50 ">Multi</td>
+                                    <td className="text-gray-600 font-medium">Jenis Kelamin</td>
+                                    <td className="text-gray-800/50 ">Jantan</td>
+                                </tr>
+                                     <tr>
+                                    <td className="text-gray-600 font-medium">Jenis Ternak</td>
+                                    <td className="text-gray-800/50 ">Kambing</td>
+                                </tr>
+                                     <tr>
+                                    <td className="text-gray-600 font-medium">Umur</td>
+                                    <td className="text-gray-800/50 ">2 Tahun</td>
+                                </tr>
+                                     <tr>
+                                    <td className="text-gray-600 font-medium">Tanggal Lahir</td>
+                                    <td className="text-gray-800/50 ">11/06/2023</td>
                                 </tr>
                                 <tr>
                                     <td className="text-gray-600 font-medium">Category</td>
@@ -113,11 +121,11 @@ const Product = () => {
                     </div>
 
                     <div className="flex items-center mt-10 gap-4">
-                        <button onClick={() => addToCart(productData._id)} className="w-full py-3.5 bg-gray-100 text-gray-800/80 hover:bg-gray-200 transition">
-                            Add to Cart
+                        <button onClick={() => addToCart(productData._id)} className="w-full py-3.5 bg-[#F95959] text-[#FFFFFF] rounded-xl hover:bg-gray-200 transition">
+                            Cetak QR Code
                         </button>
-                        <button onClick={() => { addToCart(productData._id); router.push('/cart') }} className="w-full py-3.5 bg-orange-500 text-white hover:bg-orange-600 transition">
-                            Buy now
+                        <button onClick={() => { addToCart(productData._id); router.push('/cart') }} className="w-full py-3.5 bg-gray-200 text-gray rounded-xl hover:bg-orange-600 transition">
+                            Hapus
                         </button>
                     </div>
                 </div>

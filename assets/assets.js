@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import logo from "./logo.png";
 import search_icon from "./search_icon.svg";
 import user_icon from "./user_icon.svg";
 import cart_icon from "./cart_icon.svg";
@@ -20,7 +20,7 @@ import heart_icon from "./heart_icon.svg";
 import star_icon from "./star_icon.svg";
 import redirect_icon from "./redirect_icon.svg";
 import star_dull_icon from "./star_dull_icon.svg";
-import header_headphone_image from "./header_headphone_image.png";
+import Farmer_girl from "./Farmer_girl.png";
 import header_playstation_image from "./header_playstation_image.png";
 import header_macbook_image from "./header_macbook_image.png";
 import macbook_image from "./macbook_image.png";
@@ -70,7 +70,7 @@ export const assets = {
   star_icon,
   redirect_icon,
   star_dull_icon,
-  header_headphone_image,
+  Farmer_girl,
   header_playstation_image,
   header_macbook_image,
   macbook_image,
@@ -119,7 +119,7 @@ export const CartIcon = () => {
 }
 
 export const BoxIcon = () => (
-  <svg className="w-5 h-5 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <svg className="w-5 h-5 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 21v-9m3-4H7.5a2.5 2.5 0 1 1 0-5c1.5 0 2.875 1.25 3.875 2.5M14 21v-9m-9 0h14v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8ZM4 8h16a1 1 0 0 1 1 1v3H3V9a1 1 0 0 1 1-1Zm12.155-5c-3 0-5.5 5-5.5 5h5.5a2.5 2.5 0 0 0 0-5Z" />
   </svg>
 );
@@ -134,15 +134,40 @@ export const productsDummyData = [
   {
     "_id": "67a1f4e43f34a77b6dde9144",
     "userId": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
-    "name": "Apple AirPods Pro 2nd gen",
-    "description": "Apple AirPods Pro (2nd Gen) with MagSafe Case (USB-C) provide excellent sound, active noise cancellation, and a comfortable fit. The USB-C case ensures quick charging, and they pair seamlessly with Apple devices for an effortless audio experience.",
-    "price": 499.99,
-    "offerPrice": 399.99,
+    "name": "Ujang",
+    "description": "Kandang 1",
+    "jenis kelamin": "Jantan",
+    "umur": "2 tahun",
     "image": [
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/k4dafzhwhgcn5tnoylrw.webp",
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/j212frakb8hdrhvhajhg.webp",
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/imwuugqxsajuwqpkegb5.webp",
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/k1oqaslw5tb3ebw01vvj.webp"
+      "/ujang.jpeg"
+    ],
+    "category": "Earphone",
+    "date": 1738667236865,
+    "__v": 0
+  },
+    {
+    "_id": "67a1f4e43f34a77b6dde9144",
+    "userId": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
+    "name": "Ujang",
+    "description": "Kandang 1",
+    "jenis kelamin": "Jantan",
+    "umur": "2 tahun",
+    "image": [
+      "/ujang.jpeg"
+    ],
+    "category": "Earphone",
+    "date": 1738667236865,
+    "__v": 0
+  },
+    {
+    "_id": "67a1f4e43f34a77b6dde9144",
+    "userId": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
+    "name": "Ujang",
+    "description": "Kandang 1",
+    "jenis kelamin": "Jantan",
+    "umur": "2 tahun",
+    "image": [
+      "/ujang.jpeg"
     ],
     "category": "Earphone",
     "date": 1738667236865,
@@ -160,48 +185,6 @@ export const productsDummyData = [
     ],
     "category": "Headphone",
     "date": 1738667310300,
-    "__v": 0
-  },
-  {
-    "_id": "67a1f5663f34a77b6dde914c",
-    "userId": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
-    "name": "Samsung Galaxy S23",
-    "description": "The Samsung Galaxy S23 offers an all-encompassing mobile experience with its advanced AMOLED display, offering vibrant visuals and smooth interactions. Equipped with top-of-the-line fitness tracking features and cutting-edge technology, this phone delivers outstanding performance. With powerful hardware, a sleek design, and long battery life, the S23 is perfect for those who demand the best in mobile innovation.",
-    "price": 899.99,
-    "offerPrice": 799.99,
-    "image": [
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/xjd4eprpwqs7odbera1w.webp"
-    ],
-    "category": "Smartphone",
-    "date": 1738667366224,
-    "__v": 0
-  },
-  {
-    "_id": "67a1f5993f34a77b6dde914e",
-    "userId": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
-    "name": "Garmin Venu 2",
-    "description": "The Garmin Venu 2 smartwatch blends advanced fitness tracking with sophisticated design, offering a wealth of features such as heart rate monitoring, GPS, and sleep tracking. Built with a 24-hour battery life, this watch is ideal for fitness enthusiasts and anyone looking to enhance their daily lifestyle. With a stunning AMOLED display and customizable watch faces, the Venu 2 combines technology with style seamlessly.",
-    "price": 399.99,
-    "offerPrice": 349.99,
-    "image": [
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/hdfi4u3fmprazpnrnaga.webp"
-    ],
-    "category": "Earphone",
-    "date": 1738667417511,
-    "__v": 0
-  },
-  {
-    "_id": "67a1f5ef3f34a77b6dde9150",
-    "userId": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
-    "name": "PlayStation 5",
-    "description": "The PlayStation 5 takes gaming to the next level with ultra-HD graphics, a powerful 825GB SSD, and ray tracing technology for realistic visuals. Whether you're into high-action games or immersive storytelling, the PS5 delivers fast loading times, seamless gameplay, and stunning visuals. It's a must-have for any serious gamer looking for the ultimate gaming experience.",
-    "price": 599.99,
-    "offerPrice": 499.99,
-    "image": [
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/dd3l13vfoartrgbvkkh5.webp"
-    ],
-    "category": "Accessories",
-    "date": 1738667503075,
     "__v": 0
   },
   {
