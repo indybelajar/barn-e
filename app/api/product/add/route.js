@@ -1,9 +1,9 @@
 import { v2 as cloudinary } from 'cloudinary';
 import { auth, getAuth } from '@clerk/nextjs/server';
-import authSeller from '@/lib/authSeller';
+import authSeller from '../../../../lib/authSeller';
 import { NextResponse } from 'next/server';
-import Product from '@/models/product';
-import connectDB from '@/config/db';
+import Product from '../../../../models/product';
+import connectDB from '../../../../config/db';
 
 
 
