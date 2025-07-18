@@ -1,8 +1,10 @@
 'use client'
-import { productsDummyData, userDummyData } from "@/assets/assets";
+import { productsDummyData, userDummyData } from "../assets/assets";
 import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
-import { useUser } from "@clerk/nextjs"; // Import useUser from Clerk
+import { useAuth, useUser } from "@clerk/nextjs"; // Import useUser from Clerk
+import toast from "react-hot-toast";
+import axios from "axios";
 
 export const AppContext = createContext();
 
@@ -16,6 +18,7 @@ export const AppContextProvider = (props) => {
     const router = useRouter()
 
     const { user } = useUser()
+    const { getToken } = useAuth()
 
     const [products, setProducts] = useState([])
     const [userData, setUserData] = useState(false)
@@ -23,7 +26,20 @@ export const AppContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({})
 
     const fetchProductData = async () => {
-        setProducts(productsDummyData)
+        try {
+
+            const {data} = await axios.get('/api/product/list')
+
+            if (data.success) {
+                setProducts(data.products)
+
+            } else {
+                toast.error(data.message)
+            }
+        } catch (error) {
+            toast.error(error.message)
+        }
+
     }
 
     const fetchUserData = async () => {
@@ -33,11 +49,23 @@ export const AppContextProvider = (props) => {
          if (user.publicMetadata.role === 'seller') {
             setIsSeller(true)
         }
-        setUserData(userDummyData)
+
+        const token = await getToken()
+
+        const { data } =  await axios.get('/api/user/data', { headers: { Authorization: `Bearer ${token}`},});
+
+        if (data.success) {
+            setUserData(data.user)
+            setCartItems(data.user.cartItems)
+        } else {
+            toast.error(data.message)
+        }
 
       } catch (error) {
-      }
-    }
+           const message = error?.response?.data?.message || error.message || "Something went wrong";
+    toast.error(message);
+  }
+}
 
     const addToCart = async (itemId) => {
 
@@ -96,7 +124,7 @@ export const AppContextProvider = (props) => {
     }, [user])
 
     const value = {
-        user, 
+        user, getToken,
         currency, router,
         isSeller, setIsSeller,
         userData, fetchUserData,

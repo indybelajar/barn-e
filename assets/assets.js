@@ -21,11 +21,14 @@ import star_icon from "./star_icon.svg";
 import redirect_icon from "./redirect_icon.svg";
 import star_dull_icon from "./star_dull_icon.svg";
 import Farmer_girl from "./Farmer_girl.png";
+import slides2 from "./slides2.png";
+import slides3 from "./slides3.png";
+import text_icon from "./text_icon.png";
+import kandank_icon from "./kandank_icon.svg";
 import header_playstation_image from "./header_playstation_image.png";
 import header_macbook_image from "./header_macbook_image.png";
 import macbook_image from "./macbook_image.png";
 import bose_headphone_image from "./bose_headphone_image.png";
-import apple_earphone_image from "./apple_earphone_image.png";
 import samsung_s23phone_image from "./samsung_s23phone_image.png";
 import venu_watch_image from "./venu_watch_image.png";
 import upload_area from "./upload_area.png";
@@ -70,12 +73,13 @@ export const assets = {
   star_icon,
   redirect_icon,
   star_dull_icon,
-  Farmer_girl,
+  Farmer_girl, slides2, slides3,
+  text_icon,
+  kandank_icon,
   header_playstation_image,
   header_macbook_image,
   macbook_image,
   bose_headphone_image,
-  apple_earphone_image,
   samsung_s23phone_image,
   venu_watch_image,
   upload_area,

@@ -1,5 +1,5 @@
 import React from "react";
-import { assets } from "@/assets/assets";
+import { assets } from "../assets/assets";
 import Image from "next/image";
 
 const Footer = () => {
@@ -47,7 +47,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="py-4 text-center text-xs md:text-sm">
-        Copyright 2025 © GreatStack.dev All Right Reserved.
+        Copyright 2025 ©Indybelajar.dev All Right Reserved.
       </p>
     </footer>
   );

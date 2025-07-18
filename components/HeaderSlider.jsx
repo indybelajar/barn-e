@@ -1,7 +1,7 @@
 "use client"; // Make sure this is the very first line
 
 import React, { useState, useEffect } from "react";
-import { assets } from "@/assets/assets";
+import { assets } from "../assets/assets";
 import Image from "next/image";
 import { useClerk, SignedOut } from "@clerk/nextjs"; // Import useClerk and SignedOut
 
@@ -24,7 +24,7 @@ const HeaderSlider = () => {
       offer: "Kelola jadwal perawatan dan kesehatan ternak dengan lebih praktis.",
       buttonText1: "Lewati",
       buttonText2: "Selanjutnya",
-      imgSrc: assets.header_playstation_image, // Make sure this path is correct or in public folder
+      imgSrc: assets.slides2, // Make sure this path is correct or in public folder
     },
     {
       id: 3,
@@ -32,7 +32,7 @@ const HeaderSlider = () => {
       offer: "Temukan berbagai produk dan perlengkapan peternakan langsung dari Barn-E. Praktis, cepat, dan tanpa ribet.",
       buttonText1: "Login", // This will trigger openSignIn()
       buttonText2: "Daftar", // This will trigger openSignUp()
-      imgSrc: assets.header_macbook_image, // Make sure this path is correct or in public folder
+      imgSrc: assets.slides3, // Make sure this path is correct or in public folder
     },
   ];
 
@@ -64,10 +64,14 @@ const HeaderSlider = () => {
             className="flex flex-col-reverse md:flex-row items-center justify-between bg-gradient-to-b from-[#F95959] to-[#FFFFFF] py-8 md:px-14 px-5 mt-6 rounded-xl min-w-full"
           >
             <div className="md:pl-8 mt-10 md:mt-0">
-              <p className="md:text-base text-[#F95959] pb-1">{slide.offer}</p>
-              <h1 className="max-w-lg md:text-[40px] md:leading-[48px] text-2xl font-semibold">
+              <h1 className="max-w-lg md:text-[40px] md:leading-[48px] text-2xl font-semibold text-[#FFFFFF]">
                 {slide.title}
               </h1>
+              <p className="text-sm md:text-base text-[#F95959] pb-1 max-w-[90%] md:max-w-md break-words">
+                 {slide.offer}
+              </p>
+
+
               <div className="flex items-center mt-4 md:mt-6 ">
                 {/* Conditionally render buttons based on signed-out status */}
                 <SignedOut>
