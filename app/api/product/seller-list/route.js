@@ -1,9 +1,9 @@
 import { getAuth } from '@clerk/nextjs/server';
-import Product from '@/models/product';
-import Shop from '@/models/shop'; // Pastikan import model Shop
-import authSeller from '@/lib/authSeller';
+import Product from '../../../../models/product';
+import Shop from '../../../../models/shop';
+import authSeller from '../../../../lib/authSeller';
 import { NextResponse } from 'next/server';
-import connectDB from '@/config/db';
+import connectDB from '../../../../config/db';
 
 export async function GET(request) {
     try {
