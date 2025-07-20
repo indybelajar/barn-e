@@ -19,12 +19,6 @@ export async function POST (request) {
 
         const { userId } = getAuth(request);
 
-        const isSeller = await authSeller(userId);
-
-        if (!isSeller) {
-            return NextResponse.json({ success: false, message: 'not authorized' })
-        }
-
         const formData = await request.formData()
         const name = formData.get('name');
         const gender = formData.get('gender');

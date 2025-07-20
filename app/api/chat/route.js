@@ -6,19 +6,26 @@ export async function POST(request) {
     const { messages } = await request.json(); // Ambil messages dari body request
 
     const openRouterApiKey = process.env.OPENROUTER_API_KEY;
-    const httpReferer = process.env.HTTP_REFERER_DOMAIN || 'https://www.yourdomain.com';
-    const xTitle = process.env.X_TITLE || 'YourAppName';
+    const httpReferer = process.env.HTTP_REFERER_DOMAIN || 'https://barn-e.vercel.app';
+    const xTitle = process.env.X_TITLE || 'Barn-e';
 
-    const response = await fetch(
-      'https://openrouter.ai/api/v1/chat/completions',
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${openRouterApiKey}`,
-          'HTTP-Referer': httpReferer,
-          'X-Title': xTitle,
-          'Content-Type': 'application/json',
-        },
+
+
+    console.log('=== ENV DEBUG ===');
+    console.log('CLERK_SECRET_KEY:', process.env.CLERK_SECRET_KEY);
+    console.log('MONGODB_URL:', process.env.MONGODB_URL);
+    console.log('OPENROUTER_API_KEY:', process.env.OPENROUTER_API_KEY);
+    console.log('================');
+
+
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+        'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        'HTTP-Referer': `https://${process.env.HTTP_REFERER_DOMAIN}`,
+        'X-Title': process.env.X_TITLE,
+        'Content-Type': 'application/json',
+    },
         body: JSON.stringify({
           model: 'deepseek/deepseek-r1:free',
           messages: messages,

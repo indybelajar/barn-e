@@ -14,13 +14,6 @@ export async function GET(request) {
         if (!userId) { // Always check for userId first
             return NextResponse.json({ success: false, message: 'Unauthorized' }, { status: 401 });
         }
-
-        const isSeller = await authSeller(userId); // <--- AWAIT authSeller!
-
-        if (!isSeller) {
-            return NextResponse.json({ success: false, message: 'Not authorized as seller' }, { status: 403 }); // Use 403 for Forbidden
-        }
-
         await connectDB();
 
         // Fetch products associated with the userId
